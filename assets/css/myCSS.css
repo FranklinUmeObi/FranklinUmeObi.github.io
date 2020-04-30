@@ -19,6 +19,7 @@
 .yellow {
   border-color: #FFD700;
   border-width: 2;
+  align-self: center;
 }
 
 /*
