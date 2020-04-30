@@ -16,6 +16,11 @@
   text-decoration: underline;
 }
 
+.yellow {
+  border-color: #FFD700;
+  border-width: 2;
+}
+
 /*
 #301934 purple
 #FFD700 gold
