@@ -22,6 +22,53 @@
   align-self: center;
 }
 
+.out {
+  display: inline-block;
+  //border-color: #FFD700;
+  border-width: 2;
+  align-self: center;
+  box-shadow: 4px -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 0;
+  box-shadow: inset 0 0 0 2px #fff;
+  color: #fff;
+  cursor: pointer;
+  //display: inline-block;
+  font-size: 0.8em;
+  font-weight: 600;
+  height: 3.125em;
+  letter-spacing: 0.225em;
+  line-height: 3.125em;
+  max-width: 30em;
+  padding: 0 2.75em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+input[type="out"]:hover,
+button:hover,
+.out:hover {
+  background-color: rgba(144, 144, 144, 0.25);
+}
+
+input[type="out"]:active,
+button:active,
+.out:active {
+  background-color: rgba(144, 144, 144, 0.5);
+}
+
 /*
 #301934 purple
 #FFD700 gold
