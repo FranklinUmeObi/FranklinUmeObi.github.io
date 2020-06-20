@@ -351,7 +351,7 @@
 		$(function() {
 			var access_key = '1a497a28a594d4d2f70c4666fc297427';
 			$.ajax({
-				url: 'http://api.ipstack.com/check' + '?access_key=' + access_key,
+				url: 'https://api.ipstack.com/check' + '?access_key=' + access_key,
 				dataType: 'jsonp',
 				success: function(json) {
 					document.getElementById("demo").innerHTML = json.city
