@@ -18,6 +18,7 @@ class GameBoard {
     ]
   }
 
+//draw the boxes of the chess piece
   displayBoard() {
     for (var i = 0; i < 8; i++) {
       for (var j = 0; j < 8; j++) {
@@ -35,6 +36,7 @@ class GameBoard {
       }
     }
 
+//draw a green box on a box that is selected
     if (this.selected) {
       fill(0, 220, 0, 140);
       rect(
@@ -46,6 +48,7 @@ class GameBoard {
     }
   }
 
+//draw the images in the 2d array of piece images
   displayPieces() {
     for (var i = 0; i < 8; i++) {
       for (var j = 0; j < 8; j++) {
@@ -62,9 +65,12 @@ class GameBoard {
     }
   }
 
+//move piece from selected box to the box passed in by parameters
   movePiece(col, row) {
+    var toMove = this.piecePositions[this.selectedRow][this.selectedCol]
+    this.piecePositions[row][col] = toMove
+    this.piecePositions[this.selectedRow][this.selectedCol] = null
 
-    
   }
 
 

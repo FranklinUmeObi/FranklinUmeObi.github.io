@@ -32,18 +32,27 @@ function draw() {
 }
 
 function mousePressed() {
+
+  //check if a piece is selectedCol
+  let x = roundnum(mouseX) / SQUARE_SIZE - 1;
+  let y = roundnum(mouseY) / SQUARE_SIZE - 1;
+  let isPiece = false;
+  if (board.piecePositions[y][x] != null) isPiece = true;
+
+  //logic to see if a box is selected
   if (
     board.selected == false &&
     mouseX > SQUARE_SIZE &&
     mouseX < SQUARE_SIZE * 9 &&
     mouseY > SQUARE_SIZE &&
-    mouseY < SQUARE_SIZE * 9
+    mouseY < SQUARE_SIZE * 9 &&
+    isPiece
   ) {
     board.selected = true;
-    board.selectedCol = roundnum(mouseX) / SQUARE_SIZE - 1;
-    board.selectedRow = roundnum(mouseY) / SQUARE_SIZE - 1;
-  } else {
-
+    board.selectedCol = x;
+    board.selectedRow = y;
+  } else
+  {
     let col = roundnum(mouseX) / SQUARE_SIZE - 1;
     let row = roundnum(mouseY) / SQUARE_SIZE - 1;
     board.movePiece(col,row);
