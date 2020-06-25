@@ -45,6 +45,13 @@ class GameBoard {
         SQUARE_SIZE,
         SQUARE_SIZE
       );
+
+//draw a red box on a box that is a valid movePiece
+
+
+
+
+
     }
   }
 
