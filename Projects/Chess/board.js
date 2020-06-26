@@ -5,20 +5,55 @@ class GameBoard {
     this.selectedRow = null;
     this.selectedColl = null;
 
-    this.piecePositions =
-    [
-    [images[0],images[1],images[2],images[3],images[4],images[2],images[1],images[0]],
-    [images[5],images[5],images[5],images[5],images[5],images[5],images[5],images[5]],
-    [null,null,null,null,null,null,null,null],
-    [null,null,null,null,null,null,null,null],
-    [null,null,null,null,null,null,null,null],
-    [null,null,null,null,null,null,null,null],
-    [images[11],images[11],images[11],images[11],images[11],images[11],images[11],images[11]],
-    [images[6],images[7],images[8],images[9],images[10],images[8],images[7],images[6]]
-    ]
+    this.piecePositions = [
+      [
+        images[0],
+        images[1],
+        images[2],
+        images[3],
+        images[4],
+        images[2],
+        images[1],
+        images[0]
+      ],
+      [
+        images[5],
+        images[5],
+        images[5],
+        images[5],
+        images[5],
+        images[5],
+        images[5],
+        images[5]
+      ],
+      [null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null],
+      [
+        images[11],
+        images[11],
+        images[11],
+        images[11],
+        images[11],
+        images[11],
+        images[11],
+        images[11]
+      ],
+      [
+        images[6],
+        images[7],
+        images[8],
+        images[9],
+        images[10],
+        images[8],
+        images[7],
+        images[6]
+      ]
+    ];
   }
 
-//draw the boxes of the chess piece
+  //draw the boxes of the chess piece
   displayBoard() {
     for (var i = 0; i < 8; i++) {
       for (var j = 0; j < 8; j++) {
@@ -36,9 +71,9 @@ class GameBoard {
       }
     }
 
-//draw a green box on a box that is selected
+    //draw a green box on a box that is selected
     if (this.selected) {
-      fill(0, 220, 0, 140);
+      fill(0, 220, 0);
       rect(
         SQUARE_SIZE + this.selectedCol * SQUARE_SIZE,
         SQUARE_SIZE + this.selectedRow * SQUARE_SIZE,
@@ -46,16 +81,22 @@ class GameBoard {
         SQUARE_SIZE
       );
 
-//draw a red box on a box that is a valid movePiece
-
-
-
-
-
+      //draw a red box on a box that is a valid movePiece
+      fill(200, 0, 0);
+      let piece = this.piecePositions[this.selectedRow][this.selectedCol];
+      let boxes = this.legalMoves(piece);
+      for (var i = 0; i < boxes.length; i++) {
+        rect(
+          SQUARE_SIZE + boxes[i].x * SQUARE_SIZE,
+          SQUARE_SIZE + boxes[i].y * SQUARE_SIZE,
+          SQUARE_SIZE,
+          SQUARE_SIZE
+        );
+      }
     }
   }
 
-//draw the images in the 2d array of piece images
+  //draw the images in the 2d array of piece images
   displayPieces() {
     for (var i = 0; i < 8; i++) {
       for (var j = 0; j < 8; j++) {
@@ -70,18 +111,175 @@ class GameBoard {
         }
       }
     }
+
+    this.pawnToQueen();
   }
 
-//move piece from selected box to the box passed in by parameters
+  //move piece from selected box to the box passed in by parameters
   movePiece(col, row) {
-    var toMove = this.piecePositions[this.selectedRow][this.selectedCol]
-    this.piecePositions[row][col] = toMove
-    this.piecePositions[this.selectedRow][this.selectedCol] = null
-
+    var toMove = this.piecePositions[this.selectedRow][this.selectedCol];
+    this.piecePositions[row][col] = toMove;
+    this.piecePositions[this.selectedRow][this.selectedCol] = null;
   }
 
+  legalMoves(piece) {
+    let boxes = [];
+    let x = this.selectedCol;
+    let y = this.selectedRow;
+    let currentPos = createVector(x, y);
 
+    //----------------------------------------------------------------
+    if (piece == this.images[5]) {
+      //black pawn
+      let r = createVector(x + 1, y + 1);
+      let l = createVector(x - 1, y + 1);
+      if (this.spotIsWhite(r) || this.spotIsWhite(l)) {
+        if (this.spotIsWhite(r)) {
+          boxes.push(r);
+        }
+        if (this.spotIsWhite(l)) {
+          boxes.push(l);
+        }
+      } else {
+        if (y == 1) {
+          let b = createVector(x, y + 2);
+          if (this.spotIsEmpty(b)) boxes.push(b);
+        }
+        let a = createVector(x, y + 1);
+        if (this.spotIsEmpty(a)) boxes.push(a);
+      }
+    }
+    //-----------------------------------------------------------------
 
+    //----------------------------------------------------------------
+    else if (piece == this.images[11]) {
+      //white pawn
+      let r = createVector(x + 1, y - 1);
+      let l = createVector(x - 1, y - 1);
+      if (this.spotIsBlack(r) || this.spotIsBlack(l)) {
+        if (this.spotIsBlack(r)) {
+          boxes.push(r);
+        }
+        if (this.spotIsBlack(l)) {
+          boxes.push(l);
+        }
+      } else {
+        if (y == 6) {
+          let b = createVector(x, y - 2);
+          if (this.spotIsEmpty(b)) boxes.push(b);
+        }
+        let a = createVector(x, y - 1);
+        if (this.spotIsEmpty(a)) boxes.push(a);
+      }
+      //----------------------------------------------------------------
+    } else if (piece == this.images[0]) {
+      //black rook
+      for (var i = 1; i < 8; i++) {
+        if (x + i < 8) {
+          //right
+          let a = createVector(x + i, y);
+          if (this.spotIsEmpty(a)) boxes.push(a);
+          let a1 = createVector(x + i, y);
+          if (this.spotIsWhite(a1)) {
+            boxes.push(a1);
+            break;
+          }
+          if (this.spotIsBlack(a1)) i = 9;
+        }
+      }
+      for (var i = 1; i < 8; i++) {
+        if (x - i >= 0) {
+          //left
+          let b = createVector(x - i, y);
+          if (this.spotIsEmpty(b)) boxes.push(b);
+          let b1 = createVector(x - i, y);
+          if (this.spotIsWhite(b1)) {
+            boxes.push(b1);
+            break;
+          }
+          if (this.spotIsBlack(b1)) i = 9;
+        }
+      }
+      for (var i = 1; i < 8; i++) {
+        if (y + i < 8) {
+          //down
+          let c = createVector(x, y + i);
+          if (this.spotIsEmpty(c)) boxes.push(c);
+          let c1 = createVector(x, y + i);
+          if (this.spotIsWhite(c1)) {
+            boxes.push(c1);
+            break;
+          }
+          if (this.spotIsBlack(c1)) i = 9;
+        }
+      }
+      for (var i = 1; i < 8; i++) {
+        if (y - i >= 0) {
+          //up
+          let d = createVector(x, y - i);
+          if (this.spotIsEmpty(d)) boxes.push(d);
+          let d1 = createVector(x, y - i);
+          if (this.spotIsWhite(d1)) {
+            boxes.push(d1);
+            break;
+          }
+          if (this.spotIsBlack(d1)) i = 9;
+        }
+      }
+    } else if (true) {
+    } else if (true) {
+    } else if (true) {
+    }
+    return boxes;
+  }
 
+  spotIsEmpty(pos) {
+    //check if the box is within board
+    if (pos.x < 0 || pos.x > 7 || pos.y < 0 || pos.y > 7) return false;
+    //check if spot is empty
+    if (this.piecePositions[pos.y][pos.x] == null) return true;
+  }
 
+  spotIsBlack(pos) {
+    //check if the box is within board
+    if (pos.x < 0 || pos.x > 7 || pos.y < 0 || pos.y > 7) return false;
+    let img = this.piecePositions[pos.y][pos.x];
+    //check if its a black piece
+    for (var i = 0; i < 6; i++) {
+      if (images[i] == img) return true;
+    }
+    return false;
+  }
+
+  spotIsWhite(pos) {
+    //check if the box is within board
+    if (pos.x < 0 || pos.x > 7 || pos.y < 0 || pos.y > 7) return false;
+    let img = this.piecePositions[pos.y][pos.x];
+    //check if its a white piece
+    for (var i = 6; i < 12; i++) {
+      if (images[i] == img) return true;
+    }
+    return false;
+  }
+
+  pawnToQueen() {
+    for (var i = 0; i < 8; i++) {
+      if (this.piecePositions[0][i] == this.images[11])
+        this.piecePositions[0][i] = this.images[10];
+      if (this.piecePositions[7][i] == this.images[5])
+        this.piecePositions[7][i] = this.images[4];
+    }
+  }
+
+  blackPawnCanCapture(pos) {
+    if (pos.x < 0 || pos.x > 7 || pos.y < 0 || pos.y > 7) return false;
+
+    return false; //change to true
+  }
+
+  whitePawnCanCapture(pos) {
+    if (pos.x < 0 || pos.x > 7 || pos.y < 0 || pos.y > 7) return false;
+
+    return false; //change to true
+  }
 }
