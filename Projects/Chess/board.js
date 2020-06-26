@@ -130,6 +130,13 @@ class GameBoard {
 //-----------------------------------------------------------------
 
 
+
+
+
+
+
+
+
 //----------------------------------------------------------------
     else if (piece == this.images[11]) //white pawn
     {
@@ -153,6 +160,13 @@ class GameBoard {
         if(this.spotIsEmpty(a)) boxes.push(a)
       }
 //----------------------------------------------------------------
+
+
+
+
+
+
+
 
 //----------------------------------------------------------------
     }
@@ -217,6 +231,15 @@ class GameBoard {
     }
 //----------------------------------------------------------------
 
+
+
+
+
+
+
+
+
+
 //----------------------------------------------------------------
     else if (piece == this.images[6]) //white rook
     {
@@ -278,6 +301,15 @@ class GameBoard {
       }
     }
 //----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 //----------------------------------------------------------------
     else if (piece == this.images[2])//black Bishop
@@ -341,6 +373,13 @@ class GameBoard {
     }
 //----------------------------------------------------------------
 
+
+
+
+
+
+
+
 //----------------------------------------------------------------
     else if (piece == this.images[8])//white Bishop
     {
@@ -401,7 +440,281 @@ class GameBoard {
         }
       }
     }
-    else if (true)
+//-------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------
+    else if (piece == this.images[4])//black queen
+    {
+      //DIAGONALS
+      for (var i = 1; i < 8; i++)
+      {
+        if (x+i < 8 && y-i >=0) {//up right
+          let a = createVector(x+i, y-i);
+          if(this.spotIsEmpty(a)) boxes.push(a)
+          let a1 = createVector(x+i, y-i);
+          if(this.spotIsWhite(a1))
+          {
+            boxes.push(a1)
+            break
+          }
+          if(this.spotIsBlack(a1)) i = 9;
+        }
+      }
+      for (var i = 1; i < 8; i++)
+      {
+        if (x-i >= 0 && y-i >= 0) {//up left
+          let b = createVector(x-i, y-i);
+          if(this.spotIsEmpty(b)) boxes.push(b)
+          let b1 = createVector(x-i, y-i);
+          if(this.spotIsWhite(b1))
+          {
+            boxes.push(b1)
+            break
+          }
+          if(this.spotIsBlack(b1)) i = 9;
+        }
+      }
+      for (var i = 1; i < 8; i++)
+      {
+        if (y+i < 8 && x+i < 8) {//down right
+          let c = createVector(x+i, y+i);
+          if(this.spotIsEmpty(c)) boxes.push(c)
+          let c1 = createVector(x+i, y+i);
+          if(this.spotIsWhite(c1))
+          {
+            boxes.push(c1)
+            break
+          }
+          if(this.spotIsBlack(c1)) i = 9;
+        }
+      }
+      for (var i = 1; i < 8; i++)
+      {
+        if (y+i < 8 && x-i >= 0) {//down left
+          let d = createVector(x-i, y+i);
+          if(this.spotIsEmpty(d)) boxes.push(d)
+          let d1 = createVector(x-i, y+i);
+          if(this.spotIsWhite(d1))
+          {
+            boxes.push(d1)
+            break
+          }
+          if(this.spotIsBlack(d1)) i = 9;
+        }
+      }
+
+      //Straights
+      for (var i = 1; i < 8; i++)
+      {
+        if (x+i < 8) {//right
+          let a = createVector(x+i, y);
+          if(this.spotIsEmpty(a)) boxes.push(a)
+          let a1 = createVector(x+i, y);
+          if(this.spotIsWhite(a1))
+          {
+            boxes.push(a1)
+            break
+          }
+          if(this.spotIsBlack(a1)) i = 9;
+        }
+      }
+      for (var i = 1; i < 8; i++)
+      {
+        if (x-i >= 0) {//left
+          let b = createVector(x-i, y);
+          if(this.spotIsEmpty(b)) boxes.push(b)
+          let b1 = createVector(x-i, y);
+          if(this.spotIsWhite(b1))
+          {
+            boxes.push(b1)
+            break
+          }
+          if(this.spotIsBlack(b1)) i = 9;
+        }
+      }
+      for (var i = 1; i < 8; i++)
+      {
+        if (y+i < 8) {//down
+          let c = createVector(x, y+i);
+          if(this.spotIsEmpty(c)) boxes.push(c)
+          let c1 = createVector(x, y+i);
+          if(this.spotIsWhite(c1))
+          {
+            boxes.push(c1)
+            break
+          }
+          if(this.spotIsBlack(c1)) i = 9;
+        }
+      }
+      for (var i = 1; i < 8; i++)
+      {
+        if (y-i >= 0) {//up
+          let d = createVector(x, y-i);
+          if(this.spotIsEmpty(d)) boxes.push(d)
+          let d1 = createVector(x, y-i);
+          if(this.spotIsWhite(d1))
+          {
+            boxes.push(d1)
+            break
+          }
+          if(this.spotIsBlack(d1)) i = 9;
+        }
+      }
+    }
+//-------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------
+    else if (piece == this.images[10])//white queen
+    {
+      //DIAGONALS
+      for (var i = 1; i < 8; i++)
+      {
+        if (x+i < 8 && y-i >=0) {//up right
+          let a = createVector(x+i, y-i);
+          if(this.spotIsEmpty(a)) boxes.push(a)
+          let a1 = createVector(x+i, y-i);
+          if(this.spotIsBlack(a1))
+          {
+            boxes.push(a1)
+            break
+          }
+          if(this.spotIsWhite(a1)) i = 9;
+        }
+      }
+      for (var i = 1; i < 8; i++)
+      {
+        if (x-i >= 0 && y-i >= 0) {//up left
+          let b = createVector(x-i, y-i);
+          if(this.spotIsEmpty(b)) boxes.push(b)
+          let b1 = createVector(x-i, y-i);
+          if(this.spotIsBlack(b1))
+          {
+            boxes.push(b1)
+            break
+          }
+          if(this.spotIsWhite(b1)) i = 9;
+        }
+      }
+      for (var i = 1; i < 8; i++)
+      {
+        if (y+i < 8 && x+i < 8) {//down right
+          let c = createVector(x+i, y+i);
+          if(this.spotIsEmpty(c)) boxes.push(c)
+          let c1 = createVector(x+i, y+i);
+          if(this.spotIsBlack(c1))
+          {
+            boxes.push(c1)
+            break
+          }
+          if(this.spotIsWhite(c1)) i = 9;
+        }
+      }
+      for (var i = 1; i < 8; i++)
+      {
+        if (y+i < 8 && x-i >= 0) {//down left
+          let d = createVector(x-i, y+i);
+          if(this.spotIsEmpty(d)) boxes.push(d)
+          let d1 = createVector(x-i, y+i);
+          if(this.spotIsBlack(d1))
+          {
+            boxes.push(d1)
+            break
+          }
+          if(this.spotIsWhite(d1)) i = 9;
+        }
+      }
+
+      for (var i = 1; i < 8; i++)
+      {
+        if (x+i < 8) {//right
+          let a = createVector(x+i, y);
+          if(this.spotIsEmpty(a)) boxes.push(a)
+          let a1 = createVector(x+i, y);
+          if(this.spotIsBlack(a1))
+          {
+            boxes.push(a1)
+            break
+          }
+          if(this.spotIsWhite(a1)) i = 9;
+        }
+      }
+      for (var i = 1; i < 8; i++)
+      {
+        if (x-i >= 0) {//left
+          let b = createVector(x-i, y);
+          if(this.spotIsEmpty(b)) boxes.push(b)
+          let b1 = createVector(x-i, y);
+          if(this.spotIsBlack(b1))
+          {
+            boxes.push(b1)
+            break
+          }
+          if(this.spotIsWhite(b1)) i = 9;
+        }
+      }
+      for (var i = 1; i < 8; i++)
+      {
+        if (y+i < 8) {//down
+          let c = createVector(x, y+i);
+          if(this.spotIsEmpty(c)) boxes.push(c)
+          let c1 = createVector(x, y+i);
+          if(this.spotIsBlack(c1))
+          {
+            boxes.push(c1)
+            break
+          }
+          if(this.spotIsWhite(c1)) i = 9;
+        }
+      }
+      for (var i = 1; i < 8; i++)
+      {
+        if (y-i >= 0) {//up
+          let d = createVector(x, y-i);
+          if(this.spotIsEmpty(d)) boxes.push(d)
+          let d1 = createVector(x, y-i);
+          if(this.spotIsBlack(d1))
+          {
+            boxes.push(d1)
+            break
+          }
+          if(this.spotIsWhite(d1)) i = 9;
+        }
+      }
+    }
+    //----------------------------------------------------------------------
+
+
+
+
+
+  //----------------------------------------------------------------------------
+    else if (piece == this.images[1])//black knight
+    {
+
+    }
+    else if (piece == this.images[5])
+    {
+
+    }
+    else if (piece == this.images[5])
     {
 
     }
