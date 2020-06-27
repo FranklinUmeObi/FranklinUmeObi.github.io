@@ -106,25 +106,15 @@ class GameBoard {
 //----------------------------------------------------------------
     if (piece == this.images[5]) //black pawn
     {
-        let r = createVector(x+1, y+1);
-        let l = createVector(x-1, y+1);
-    if(this.spotIsWhite(r) ||this.spotIsWhite(l)){
-      if (this.spotIsWhite(r))
-      {
-        boxes.push(r)
-      }
-      if(this.spotIsWhite(l))
-      {
-        boxes.push(l)
-      }
-    }
-      else {
-        if (y == 1) {
-          let b = createVector(x, y+2);
-          if(this.spotIsEmpty(b)) boxes.push(b)
-        }
-        let a = createVector(x, y+1);
-        if(this.spotIsEmpty(a)) boxes.push(a)
+      let r = createVector(x+1, y+1);
+      let l = createVector(x-1, y+1);
+      if (this.spotIsWhite(r))  boxes.push(r)
+      if(this.spotIsWhite(l))   boxes.push(l)
+      let a = createVector(x, y+1);
+      if(this.spotIsEmpty(a)) boxes.push(a)
+      if (y == 1) {
+        let b = createVector(x, y+2);
+        if(this.spotIsEmpty(b)) boxes.push(b)
       }
     }
 //-----------------------------------------------------------------
@@ -142,34 +132,25 @@ class GameBoard {
     {
       let r = createVector(x+1, y-1);
       let l = createVector(x-1, y-1);
-      if(this.spotIsBlack(r) ||this.spotIsBlack(l)){
-    if (this.spotIsBlack(r))
-    {
-      boxes.push(r)
-    } if(this.spotIsBlack(l))
-    {
-      boxes.push(l)
-    }
-  }else {
-        if (y == 6) {
-          let b = createVector(x, y-2);
-          if(this.spotIsEmpty(b)) boxes.push(b)
-
-        }
-        let a = createVector(x, y-1);
-        if(this.spotIsEmpty(a)) boxes.push(a)
+      if (this.spotIsBlack(r))  boxes.push(r)
+      if(this.spotIsBlack(l))   boxes.push(l)
+      let a = createVector(x, y-1);
+      if(this.spotIsEmpty(a))   boxes.push(a)
+      if (y == 6){
+        let b = createVector(x, y-2);
+        if(this.spotIsEmpty(b)) boxes.push(b)
       }
-//----------------------------------------------------------------
-
-
-
-
-
-
-
-
-//----------------------------------------------------------------
     }
+//----------------------------------------------------------------
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------
     else if (piece == this.images[0]) //black rook
     {
       for (var i = 1; i < 8; i++)
