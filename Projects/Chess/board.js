@@ -36,27 +36,29 @@ class GameBoard {
       }
     }
 
-//draw a green box on a box that is selected
-    if (this.selected) {
-      fill(0, 220, 0);
+
+    if (this.selected)
+    {
+      //draw a green box on a box that is selected
+      fill(34,139,34)
       rect(
         SQUARE_SIZE + this.selectedCol * SQUARE_SIZE,
         SQUARE_SIZE + this.selectedRow * SQUARE_SIZE,
-        SQUARE_SIZE,
-        SQUARE_SIZE
-        );
+        SQUARE_SIZE,SQUARE_SIZE);
 
-//draw a red box on a box that is a valid movePiece
-      fill(200, 0, 0);
       let piece = this.piecePositions[this.selectedRow][this.selectedCol]
       let boxes = this.legalMoves(piece)
-      for (var i = 0; i < boxes.length; i++) {
+      for (var i = 0; i < boxes.length; i++)
+      {
+        //draw a blue box on a box that is a valid movePiece
+        fill(100,149,237)
+        let aBox = createVector(boxes[i].x, boxes[i].y);
+        //capturable pieces are highlighted red
+        if(this.spotIsWhite(aBox)|| this.spotIsBlack(aBox)) fill(178,34,34)
         rect(
           SQUARE_SIZE + boxes[i].x * SQUARE_SIZE,
           SQUARE_SIZE + boxes[i].y * SQUARE_SIZE,
-          SQUARE_SIZE,
-          SQUARE_SIZE
-          );
+          SQUARE_SIZE,SQUARE_SIZE);
       }
 
 
@@ -97,11 +99,6 @@ class GameBoard {
     let x = this.selectedCol
     let y = this.selectedRow
     let currentPos = createVector(x, y);
-
-
-
-
-
 
 //----------------------------------------------------------------
     if (piece == this.images[5]) //black pawn

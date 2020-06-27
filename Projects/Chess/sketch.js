@@ -55,6 +55,8 @@ function mousePressed() {
   //code to deselect a piece
   else if(x == board.selectedCol && y == board.selectedRow){
     board.selected = false;
+    board.selectedCol = null;
+    board.selectedRow = null;
   }
 // code to move a piece
   else {
@@ -67,6 +69,11 @@ function mousePressed() {
     {
       board.movePiece(x,y);
       board.selected = false;
+    }
+    else {
+      board.selected = false;
+      board.selectedCol = null;
+      board.selectedRow = null;
     }
 
   }
