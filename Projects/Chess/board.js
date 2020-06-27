@@ -686,13 +686,48 @@ class GameBoard {
   //----------------------------------------------------------------------------
     else if (piece == this.images[1])//black knight
     {
-
+      let a = createVector(x+1, y+2);
+      let b = createVector(x+2, y+1);
+      let c = createVector(x-1, y+2);
+      let d = createVector(x-2, y+1);
+      let e = createVector(x+1, y-2);
+      let f = createVector(x+2, y-1);
+      let g = createVector(x-1, y-2);
+      let h = createVector(x-2, y-1);
+      if(this.spotIsEmpty(a) || this.spotIsWhite(a)) boxes.push(a)
+      if(this.spotIsEmpty(b) || this.spotIsWhite(b)) boxes.push(b)
+      if(this.spotIsEmpty(c) || this.spotIsWhite(c)) boxes.push(c)
+      if(this.spotIsEmpty(d) || this.spotIsWhite(d)) boxes.push(d)
+      if(this.spotIsEmpty(e) || this.spotIsWhite(e)) boxes.push(e)
+      if(this.spotIsEmpty(f) || this.spotIsWhite(f)) boxes.push(f)
+      if(this.spotIsEmpty(g) || this.spotIsWhite(g)) boxes.push(g)
+      if(this.spotIsEmpty(h) || this.spotIsWhite(h)) boxes.push(h)
     }
-    else if (piece == this.images[5])
+    //------------------------------------------------
+    else if (piece == this.images[7])//white knight
+    {
+      let a = createVector(x+1, y+2);
+      let b = createVector(x+2, y+1);
+      let c = createVector(x-1, y+2);
+      let d = createVector(x-2, y+1);
+      let e = createVector(x+1, y-2);
+      let f = createVector(x+2, y-1);
+      let g = createVector(x-1, y-2);
+      let h = createVector(x-2, y-1);
+      if(this.spotIsEmpty(a) || this.spotIsBlack(a)) boxes.push(a)
+      if(this.spotIsEmpty(b) || this.spotIsBlack(b)) boxes.push(b)
+      if(this.spotIsEmpty(c) || this.spotIsBlack(c)) boxes.push(c)
+      if(this.spotIsEmpty(d) || this.spotIsBlack(d)) boxes.push(d)
+      if(this.spotIsEmpty(e) || this.spotIsBlack(e)) boxes.push(e)
+      if(this.spotIsEmpty(f) || this.spotIsBlack(f)) boxes.push(f)
+      if(this.spotIsEmpty(g) || this.spotIsBlack(g)) boxes.push(g)
+      if(this.spotIsEmpty(h) || this.spotIsBlack(h)) boxes.push(h)
+    }
+    else if (piece == this.images[3])
     {
 
     }
-    else if (piece == this.images[5])
+    else if (piece == this.images[9])
     {
 
     }
