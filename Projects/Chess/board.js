@@ -98,7 +98,6 @@ class GameBoard {
     let boxes = []
     let x = this.selectedCol
     let y = this.selectedRow
-    let currentPos = createVector(x, y);
 
 //----------------------------------------------------------------
     if (piece == this.images[5]) //black pawn
@@ -703,7 +702,14 @@ class GameBoard {
       if(this.spotIsEmpty(g) || this.spotIsWhite(g)) boxes.push(g)
       if(this.spotIsEmpty(h) || this.spotIsWhite(h)) boxes.push(h)
     }
-    //------------------------------------------------
+    //------------------------------------------------------------------
+
+
+
+
+
+
+        //------------------------------------------------------------------
     else if (piece == this.images[7])//white knight
     {
       let a = createVector(x+1, y+2);
@@ -723,17 +729,66 @@ class GameBoard {
       if(this.spotIsEmpty(g) || this.spotIsBlack(g)) boxes.push(g)
       if(this.spotIsEmpty(h) || this.spotIsBlack(h)) boxes.push(h)
     }
-    else if (piece == this.images[3])
-    {
+    //-----------------------------------------------------------------
 
+
+
+
+
+
+
+    //------------------------------------------------------------------
+    else if (piece == this.images[3])//black king
+    {
+      let a = createVector(x+1, y);
+      let b = createVector(x-1, y);
+      let c = createVector(x, y+1);
+      let d = createVector(x, y-1);
+      let e = createVector(x+1, y-1);
+      let f = createVector(x-1, y-1);
+      let g = createVector(x+1, y+1);
+      let h = createVector(x-1, y+1);
+      if((this.spotIsEmpty(a) || this.spotIsWhite(a)) && this.spotIsNotCheckForBlack(a)) boxes.push(a)
+      if((this.spotIsEmpty(b) || this.spotIsWhite(b)) && this.spotIsNotCheckForBlack(b)) boxes.push(b)
+      if((this.spotIsEmpty(c) || this.spotIsWhite(c)) && this.spotIsNotCheckForBlack(c)) boxes.push(c)
+      if((this.spotIsEmpty(d) || this.spotIsWhite(d)) && this.spotIsNotCheckForBlack(d)) boxes.push(d)
+      if((this.spotIsEmpty(e) || this.spotIsWhite(e)) && this.spotIsNotCheckForBlack(e)) boxes.push(e)
+      if((this.spotIsEmpty(f) || this.spotIsWhite(f)) && this.spotIsNotCheckForBlack(f)) boxes.push(f)
+      if((this.spotIsEmpty(g) || this.spotIsWhite(g)) && this.spotIsNotCheckForBlack(g)) boxes.push(g)
+      if((this.spotIsEmpty(h) || this.spotIsWhite(h)) && this.spotIsNotCheckForBlack(h)) boxes.push(h)
     }
-    else if (piece == this.images[9])
-    {
+        //------------------------------------------------------------------
 
+
+
+
+
+
+
+
+    //------------------------------------------------------------------
+    else if (piece == this.images[9])//white king
+    {
+      let a = createVector(x+1, y);
+      let b = createVector(x-1, y);
+      let c = createVector(x, y+1);
+      let d = createVector(x, y-1);
+      let e = createVector(x+1, y-1);
+      let f = createVector(x-1, y-1);
+      let g = createVector(x+1, y+1);
+      let h = createVector(x-1, y+1);
+      if((this.spotIsEmpty(a) || this.spotIsBlack(a)) && this.spotIsNotCheckForWhite(a)) boxes.push(a)
+      if((this.spotIsEmpty(b) || this.spotIsBlack(b)) && this.spotIsNotCheckForWhite(b)) boxes.push(b)
+      if((this.spotIsEmpty(c) || this.spotIsBlack(c)) && this.spotIsNotCheckForWhite(c)) boxes.push(c)
+      if((this.spotIsEmpty(d) || this.spotIsBlack(d)) && this.spotIsNotCheckForWhite(d)) boxes.push(d)
+      if((this.spotIsEmpty(e) || this.spotIsBlack(e)) && this.spotIsNotCheckForWhite(e)) boxes.push(e)
+      if((this.spotIsEmpty(f) || this.spotIsBlack(f)) && this.spotIsNotCheckForWhite(f)) boxes.push(f)
+      if((this.spotIsEmpty(g) || this.spotIsBlack(g)) && this.spotIsNotCheckForWhite(g)) boxes.push(g)
+      if((this.spotIsEmpty(h) || this.spotIsBlack(h)) && this.spotIsNotCheckForWhite(h)) boxes.push(h)
     }
     return boxes
   }
-
+    //------------------------------------------------------------------
 
 
   spotIsEmpty(pos){
@@ -767,31 +822,111 @@ class GameBoard {
 
 
 
+
+
+
+
+//FixThis
+  spotIsNotCheckForBlack(pos)
+  {
+    //looping through all board positions
+    for (var row = 0; row < 8; row++)
+    {
+      for (var col = 0; col < 8; col++)
+      {
+        let a = createVector(col,row)
+        let ignore = 0
+        //if the current position is a white piece
+        if(this.spotIsWhite(a) && this.piecePositions[row][col] != images[9])
+        {
+          let enemy = this.piecePositions[row][col]
+          let tempCol = this.selectedCol
+          let tempRow = this.selectedRow
+          this.selectedRow = row
+          this.selectedCol = col
+          let spots = this.legalMoves(enemy)
+          this.selectedRow = tempRow
+          this.selectedCol = tempCol
+          //loop through that pieces legal moves
+          for (var k = 0; k < spots.length; k++)
+          {
+            //if that legal move intersects then the spot is in check
+            if (pos.x == spots[k].x && pos.y == spots[k].y)
+            {
+              //if enemy is a white pawn
+              if (enemy = this.images[11])
+              {
+                //pawn can't check in the same col
+                if(spots[k].x == col) ignore = 1
+                else return false
+              }
+              else return false
+            }
+          }
+        }
+
+      }
+    }
+    //if spot doesn't intersect, the spot is = not in check
+    return true
+  }
+
+
+
+
+
+  spotIsNotCheckForWhite(pos)
+  {
+    //looping through all board positions
+    for (var row = 0; row < 8; row++)
+    {
+      for (var col = 0; col < 8; col++)
+      {
+        let a = createVector(col,row)
+        let ignore = 0
+        //if the current position is a black piece
+        if(this.spotIsBlack(a) && this.piecePositions[row][col] != images[3])
+        {
+          let enemy = this.piecePositions[row][col]
+          let tempCol = this.selectedCol
+          let tempRow = this.selectedRow
+          this.selectedRow = row
+          this.selectedCol = col
+          let spots = this.legalMoves(enemy)
+          this.selectedRow = tempRow
+          this.selectedCol = tempCol
+          //loop through that pieces legal moves
+          for (var k = 0; k < spots.length; k++)
+          {
+            //if that legal move intersects then the spot is in check
+            if (pos.x == spots[k].x && pos.y == spots[k].y)
+            {
+              //if enemy is a black pawn
+              if (enemy = this.images[5])
+              {
+                //pawn can't check in the same col
+                if(spots[k].x == col) ignore = 1
+                else return false
+              }
+              else return false
+            }
+          }
+        }
+
+      }
+    }
+    //if spot doesn't intersect, the spot is = not in check
+    return true
+  }
+
+
+
     pawnToQueen(){
       for (var i = 0; i < 8; i++) {
         if(this.piecePositions[0][i] == this.images[11]) this.piecePositions[0][i] = this.images[10]
         if(this.piecePositions[7][i] == this.images[5]) this.piecePositions[7][i] = this.images[4]
       }
     }
-
-
-
-  blackPawnCanCapture(pos){
-    if (pos.x < 0 || pos.x > 7 ||pos.y < 0 || pos.y > 7 ) return false
-
-    return false//change to true
-  }
-
-  whitePawnCanCapture(pos){
-    if (pos.x < 0 || pos.x > 7 ||pos.y < 0 || pos.y > 7 ) return false
-
-    return false//change to true
-  }
-
-
-
-
-
 
 
 
