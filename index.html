@@ -53,7 +53,7 @@
 				<h3>Fullstack Developer & Graphic Designer</h3>
 				<p>A website showcasing me and my projects.</p>
 				<ul class="actions special">
-					<li><a href="cv.html" class="button primary yellow">My CV</a></li>
+					<li><a href="Projects\LearningFetch\index.html" class="button primary yellow">My CV</a></li>
 				</ul>
 			</div>
 			<a href="#one" class="more scrolly">Learn More</a>
@@ -158,20 +158,18 @@
 			</section>
 
 			<section class="spotlight">
-				<div class="image"><img src="images/3.png" alt="IP Tracker" /></div>
+				<div class="image"><img src="images\5.png" alt="ISS Tracker" /></div>
 				<div class="content">
-					<h2>Project: HackerMan</h2>
-					<h5 style="color:red;">(Due to the API being an http request rather than a https request this
-						project doesn't work on GitHub Pages but will work if you clone it locally)</h5>
-					<h5>(Languages: Javascript,HTML, CSS)</h5>
-					<h5>(Frameworks:JQuery)</h5>
-					<p>This is my first website that implements a backend API and jQuery,
-						this particular Api allows me to track and discover information
-						using somebodies IP address for example here is the city you are in :
-						<span id="Interactive Demo">loading...</span></p>
+					<h2>Project: ISS Tracker</h2>
+					<h5>(Languages: Javascript)</h5>
+					<h5>(Frameworks:P5.js)</h5>
+					<p>This is my 2nd attempt at creating something that uses an API.
+						This is a very simple website that displays the co-ordinates of the ISS in
+						relation to earth using longitude and latitude.
+						It updates every second so you can see it's trajectory</p>
 					<div style="text-align: center;">
-						<a href="Projects\Hackerman\index.html" class="button fit primary yellow" style="display:inline-block;">Demo</a>
-						<a href="https://github.com/FranklinUmeObi/IP-Location-tracker" class="button fit" style="display:inline-block;">View Code</a>
+						<a href="Projects\ISSTracker\index.html" class="button fit primary yellow" style="display:inline-block;">Interactive Demo</a>
+						<a href="#" class="button fit" style="display:inline-block;">View Code</a>
 					</div>
 				</div>
 			</section>
@@ -377,19 +375,6 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-	<script>
-		$(function() {
-			var access_key = '1a497a28a594d4d2f70c4666fc297427';
-			$.ajax({
-				url: 'http://api.ipstack.com/check' + '?access_key=' + access_key,
-				dataType: 'jsonp',
-				success: function(json) {
-					document.getElementById("demo").innerHTML = json.city
-				}
-			});
-
-		});
-	</script>
 
 </body>
 
