@@ -24,12 +24,12 @@ let optionsForPost = {
 //My Code
 //------------------------------------------------------------------------------
 
-/*
+
 GetRequest(url).catch(error => console.error(eror));
 PostRequest(url, optionsForPost).catch(error => console.error(eror));
 
 GetRequestManipulating(url).catch(error => console.error(eror));
-*/
+
 
 //------------------------------------------------------------------------------
 //Get Request
