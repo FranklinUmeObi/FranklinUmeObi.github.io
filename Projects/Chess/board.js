@@ -7,14 +7,14 @@ class GameBoard {
 
     this.piecePositions =
     [
-    [images[0],images[1],images[2],images[3],images[4],images[2],images[1],images[0]],
+    [images[0],images[1],images[2],images[4],images[3],images[2],images[1],images[0]],
     [images[5],images[5],images[5],images[5],images[5],images[5],images[5],images[5]],
     [null,null,null,null,null,null,null,null],
     [null,null,null,null,null,null,null,null],
     [null,null,null,null,null,null,null,null],
     [null,null,null,null,null,null,null,null],
     [images[11],images[11],images[11],images[11],images[11],images[11],images[11],images[11]],
-    [images[6],images[7],images[8],images[9],images[10],images[8],images[7],images[6]]
+    [images[6],images[7],images[8],images[10],images[9],images[8],images[7],images[6]]
     ]
   }
 
@@ -23,9 +23,9 @@ class GameBoard {
     for (var i = 0; i < 8; i++) {
       for (var j = 0; j < 8; j++) {
         strokeWeight(2.5);
-        if (j % 2 === 0 && i % 2 == 0) fill(35);
-        else if (j % 2 === 1 && i % 2 == 1) fill(35);
-        else fill(255);
+        if (j % 2 === 0 && i % 2 == 0) fill(255);
+        else if (j % 2 === 1 && i % 2 == 1) fill(255);
+        else fill(35);
 
         rect(
           SQUARE_SIZE + i * SQUARE_SIZE,
