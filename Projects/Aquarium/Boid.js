@@ -6,9 +6,9 @@ class Boid {
     this.velocity.sub(0,this.velocity.z, 0);
     this.acceleration = createVector();
     this.model = model;
-    this.perceptionRadius = 50;
+    this.perceptionRadius = 70;
     this.maxForce = 1;
-    this.maxSpeed = 10;//should be 8
+    this.maxSpeed = 9;//should be 8
   }
 
   show() {
@@ -51,8 +51,8 @@ class Boid {
     let alignment = this.align(boids);
     let cohesion = this.cohesion(boids);
     let separation = this.separation(boids);
-    alignment.mult(1.3);
-    separation.mult(1.1);
+    alignment.mult(1.1);
+    separation.mult(1.2);
     //cohesion.mult(0.8);
     this.acceleration.add(alignment)
     this.acceleration.add(cohesion)
