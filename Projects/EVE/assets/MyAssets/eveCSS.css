@@ -56,6 +56,10 @@ p, h1, h2, h3, h4, h5, h6 {
   margin-left: auto;
 }
 
+.myInbox {
+  margin-bottom: 10px;
+}
+
 .A {
   justify-content: flex-start;
 }
@@ -74,10 +78,11 @@ p, h1, h2, h3, h4, h5, h6 {
   color: white;
 }
 
+/*
 .bigP {
   font-size: 22px;
 }
-
+*/
 .bigcard {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -107,6 +112,7 @@ p, h1, h2, h3, h4, h5, h6 {
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  margin: 15px;
 }
 
 .card:hover {
