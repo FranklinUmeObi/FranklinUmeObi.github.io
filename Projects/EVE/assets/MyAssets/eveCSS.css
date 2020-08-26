@@ -1,6 +1,10 @@
 @font-face {
   font-family: "Gidole";
   src: url(../MyAssets/Gidole-Regular.otf)format("opentype");
+  src: url(../MyAssets/GidoleWebFontKit/gidole-regular.woff2) format('woff2'),
+    url(../MyAssets/GidoleWebFontKit/gidole-regular.woff) format('woff'),
+    url(../MyAssets/GidoleWebFontKit/gidole-regular.ttf) format('truetype');
+  font-weight: normal;
   font-style: normal;
 }
 
