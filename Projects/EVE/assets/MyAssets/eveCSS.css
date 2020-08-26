@@ -1,4 +1,13 @@
-/* Renamed*/
+@font-face {
+  font-family: "Gidole";
+  src: url(../MyAssets/Gidole-Regular.otf)format("opentype");
+  font-style: normal;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  font-family: "Gidole", sans-serif !important;
+}
+
 .bannerEdit {
   padding-top: 10px;
 }
