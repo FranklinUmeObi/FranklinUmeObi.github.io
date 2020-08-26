@@ -1,9 +1,9 @@
 @font-face {
   font-family: "Gidole";
   src: url(../MyAssets/Gidole-Regular.otf)format("opentype");
-  src: url(../MyAssets/GidoleWebFontKit/gidole-regular.woff2) format('woff2'),
-    url(../MyAssets/GidoleWebFontKit/gidole-regular.woff) format('woff'),
-    url(../MyAssets/GidoleWebFontKit/gidole-regular.ttf) format('truetype');
+  src: url(../MyAssets/GidoleWebFontKit/Gidole-Regular.woff2) format('woff2'),
+    url(../MyAssets/GidoleWebFontKit/Gidole-Regular.woff) format('woff'),
+    url(../MyAssets/GidoleWebFontKit/Gidole-Regular.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
