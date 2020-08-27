@@ -146,6 +146,60 @@ nav {
   font-size: 22px;
 }
 */
+.myStepContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: auto;
+  align-items: center;
+}
+
+.myWorksStep {
+  width: inherit;
+  display: flex;
+  padding-bottom: 100px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.imgHold {
+  width: 400px;
+}
+
+.imgHold img {
+  width: 100%;
+  transform: scale(1.5);
+}
+
+.myTextStep {
+  text-align: left;
+  width: 300px;
+  padding: 30px;
+}
+
+.myTextStep2 {
+  text-align: right;
+  width: 300px;
+  padding: 30px;
+}
+
+.myTextStep h3 {
+  font-size: 28px;
+}
+
+.myTextStep2 h3 {
+  font-size: 28px;
+}
+
+.myTextStep p {
+  font-size: 24px;
+}
+
+.myTextStep2 p {
+  font-size: 24px;
+}
+
 .bigcard {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -163,15 +217,16 @@ nav {
 }
 
 .myCards {
-  display: flex;
+  display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  width: 40%;
+  width: 30%;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
