@@ -6,7 +6,7 @@ if (isset($_POST['submit'])) {
   $message = $_POST['message'];
   $subject = "A message from the EVE Website"
 
-  $emailTo = "umeobif@tcd.ie";
+  $emailTo = "hi@eve-app.eu";
   $headers = "From: ".$emailFrom;
   $txt = "You have received an email via the EVE website from ".$name.".\n\n".$message;
 
@@ -23,7 +23,7 @@ if (isset($_POST['fastSubmit'])) {
   $message = "Hello, I clicked the submit email button on the eve site. I want to be a beta tester. Please email me back";
   $subject = "I want to be an EVE beta tester"
 
-  $emailTo = "umeobif@tcd.ie";
+  $emailTo = "hi@eve-app.eu";
   $headers = "From: ".$emailFrom;
   $txt = "You have received an email via the EVE website from ".$emailFrom.".\n\n".$message;
 

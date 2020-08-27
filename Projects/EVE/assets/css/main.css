@@ -2079,8 +2079,9 @@ form>.fields {
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  /*
   width: calc(100% + 3em);
-  margin: -1.5em 0 2em -1.5em;
+  margin: -1.5em 0 2em -1.5em;*/
 }
 
 form>.fields>.field {
@@ -3944,8 +3945,9 @@ body.is-preload #banner p {
 }
 
 #footer .inner form {
+  /*
   margin: 0 3em 0 0;
-  width: calc(50% - 1.5em);
+  width: calc(50% - 1.5em);*/
 }
 
 #footer .inner .contact {

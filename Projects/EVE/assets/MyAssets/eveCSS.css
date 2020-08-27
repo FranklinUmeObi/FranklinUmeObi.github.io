@@ -164,40 +164,39 @@ nav {
 }
 
 .imgHold {
-  width: 400px;
+  width: 300px;
 }
 
 .imgHold img {
   width: 100%;
-  transform: scale(1.5);
+  transform: scale(1.4);
 }
 
 .myTextStep {
   text-align: left;
   width: 300px;
-  padding: 30px;
 }
 
 .myTextStep2 {
   text-align: right;
   width: 300px;
-  padding: 30px;
 }
 
 .myTextStep h3 {
-  font-size: 28px;
+  font-size: 26px;
 }
 
 .myTextStep2 h3 {
-  font-size: 28px;
+  font-size: 26px;
 }
 
 .myTextStep p {
-  font-size: 24px;
+  font-size: 20px;
+  overflow-wrap: break-word;
 }
 
 .myTextStep2 p {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .bigcard {
@@ -283,6 +282,11 @@ nav {
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
+a, button, a:active, a:focus, a:visited {
+  outline: none;
+  text-decoration: none;
+}
+
 .myIcon {
   padding: 0;
   opacity: 1;
@@ -315,4 +319,20 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  margin: 0px;
+}
+
+.myAlign {
+  text-align: center;
+}
+
+.fields {
+  align-items: center;
+  margin: auto;
+  width: 40vw;
+}
+
+.myUpMarg {
+  padding-top: 20px;
 }
