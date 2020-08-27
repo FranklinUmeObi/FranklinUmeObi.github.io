@@ -36,13 +36,29 @@
 				<h2>Menu</h2>
 				<ul class="links">
 					<li><a href="index.html">Home</a></li>
-					<li><a href="#footer">Contact</a></li>
+					<li><a href="index.html#footer">Contact</a></li>
 					<li><a href="faq.html">FAQ</a></li>
 					<li><a href="aboutUs.html">About Us</a></li>
 				</ul>
 				<a href="#" class="close">Close</a>
 			</div>
 		</nav>
+
+
+
+		<!--
+		<header class="navhead">
+			<img src="assets\MyAssets\FullLogoWhite.svg" alt="Logo" class="navlogo">
+			<nav>
+				<ul class="navlinks">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="index.html#footer">Contact</a></li>
+					<li><a href="faq.html">FAQ</a></li>
+					<li><a href="aboutUs.html">About Us</a></li>
+				</ul>
+			</nav>
+		</header>
+ -->
 
 		<!-- Banner -->
 		<section id="banner" class="bannerEdit">
@@ -60,12 +76,15 @@
 						<p>Sign up for our beta test coming later this year.
 							Contact us on any of our social media below</p>
 					</div>
-					<div class="myItem B">
-						<label for="email">Email</label>
-						<input type="email" name="email" id="email" class="myInbox" />
-						<ul class="actions myButton">
-							<li><input type="submit" value="Submit" class="myButtonA" /></li>
-						</ul>
+					<div class="">
+						<form class="myItem B" action="index.html" method="post">
+							<label for="email">Email</label>
+							<input type="email" name="fastEmail" id="email" class="myInbox" />
+							<ul class="actions myButton">
+								<li><input type="submit" name="fastSubmit" value="Submit" class="myButtonA" /></li>
+							</ul>
+						</form>
+
 					</div>
 
 
@@ -222,27 +241,27 @@
 
 				</div>
 
-				<!-- <h2 class="major">Or send us an email</h2>
+				<h2 class="major">Or send us an email</h2>
 
-			<form method="post" action="contactform.php">
-				<div class="fields">
-					<div class="field">
-						<label for="name">Name</label>
-						<input type="text" name="name" id="name" />
+				<form method="post" action="contactform.php" class="myForm">
+					<div class="fields">
+						<div class="field">
+							<label for="name">Name</label>
+							<input type="text" name="name" id="name" />
+						</div>
+						<div class="field">
+							<label for="email">Email</label>
+							<input type="email" name="email" id="email" />
+						</div>
+						<div class="field">
+							<label for="message">Message</label>
+							<textarea name="message" id="message" rows="4"></textarea>
+						</div>
 					</div>
-					<div class="field">
-						<label for="email">Email</label>
-						<input type="email" name="email" id="email" />
-					</div>
-					<div class="field">
-						<label for="message">Message</label>
-						<textarea name="message" id="message" rows="4"></textarea>
-					</div>
-				</div>
-				<ul class="actions">
-					<li><input type="submit" name="submit" value="Send Message" /></li>
-				</ul>
-			</form> -->
+					<ul class="actions">
+						<li><input type="submit" name="submit" value="Send Message" /></li>
+					</ul>
+				</form>
 
 
 
