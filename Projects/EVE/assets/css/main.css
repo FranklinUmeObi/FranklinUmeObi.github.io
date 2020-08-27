@@ -99,7 +99,9 @@ html {
 body {
   background-color: #242424;
   background-image: linear-gradient(to top, rgba(35, 35, 35, 0.8), rgba(46, 46, 46, 0.8)), url("../../images/bg.jpg");
-  background-size: auto,
+  background-size:
+    /*auto*/
+    ,
     cover;
   background-attachment: fixed,
     fixed;
@@ -3403,7 +3405,8 @@ body.is-menu-visible #menu .inner {
     padding: 7em 0 8.25em 0;
     background-color: #242424;
     background-image: linear-gradient(to top, rgba(35, 35, 35, 0.8), rgba(35, 35, 35, 0.8)), url("../../images/bg.jpg");
-    background-size: auto,
+    background-size:
+      /*auto,*/
       cover;
     background-position: center,
       center;
@@ -3508,7 +3511,8 @@ body.is-preload #banner p {
     padding: 9em 0 6.25em 0;
     background-color: #242424;
     background-image: linear-gradient(to top, rgba(35, 35, 35, 0.8), rgba(35, 35, 35, 0.8)), url("../../images/bg.jpg");
-    background-size: auto,
+    background-size:
+      /*auto,*/
       cover;
     background-position: center,
       0% 30%;
@@ -3987,7 +3991,8 @@ body.is-preload #banner p {
   #footer {
     background-color: #242424;
     background-image: linear-gradient(to top, rgba(35, 35, 35, 0.8), rgba(35, 35, 35, 0.8)), url("../../images/bg.jpg");
-    background-size: auto,
+    background-size:
+      /*auto,*/
       cover;
     background-position: center,
       center;
